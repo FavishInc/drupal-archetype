@@ -22,7 +22,7 @@ sites/*/files
 !sites/*/files/config*/
 
 # Ignore theme items
-themes/en/css
+themes/*/css
 
 sites/*/private
 
