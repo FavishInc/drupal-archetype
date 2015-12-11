@@ -36,21 +36,14 @@ Drush works as usual with a few super powers.
 * in `.docker/etc/drush` you'll notice 2 files that let you specify aliases for your development and potentially production environments. If you fill those out with the correct hostname and directory you can perform local and remote operations form inside the *CLI container*.
 * In your *CLI container* from above, running `drush sql-sync @dev @local` will grab the most up to date version of mysql from the development server and add it to your local environment.
 
-## NPM and Gulp
-In the same way we don't want to track third party code we don't want to track compiled or derived code either. Because we leverage SASS and ES6 in our themes you'll want to jump into the them directory and build the necessary code (ES5 and CSS).
-
-* After this, you will need to build your theme (`themes/archetype/README.md`) via npm and you can point your browser to the appropriate
-    address to view your local instance of the site.
+## Building the Theme
+In the same way we don't want to track third party code we don't want to track compiled or derived code either. Because we leverage SASS and ES6 in our themes you'll want to jump into the *CLI container* and into the theme directory and build the necessary code (ES5 and CSS). The process there is simple and the [readme.md](`themes/archetype/README.md`) walks you through it.
 
 ## Continuous Integration via Circle CI
-This project is set up to utilize [CircleCI](https://circleci.com) to keep all deployed versions in sync.  Configuration
-can be found in `circle.yml`.  Note that the build_dir is set to `./project` so circle will infer commands from files
-located there, including composer and javascript tests found in that directory's package.json.
+This project is set up to utilize [CircleCI](https://circleci.com) to automate the build and deployment process to a server of your choice. Configuration
+can be found in [`circle.yml`](circle.yml).  Note that the `build_dir` is set to `./project` so circle will set the present working directory to that location for all commands, including composer and javascript tests found in that directory's package.json.
 
 If you want to watch this project, simply add it to your account on CircleCI's site.  All you need are github permissions.
 
 ## Tests
 Base tests run by Circle CI simply check to make sure nothing went wrong after composer, and can be found in `project/ci-tests.js`.
-
-## Building the Theme
-Detailed instructions can be found in themes/en/README.md
