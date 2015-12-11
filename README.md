@@ -37,7 +37,7 @@ Drush works as usual with a few super powers.
 * In your *CLI container* from above, running `drush sql-sync @dev @local` will grab the most up to date version of mysql from the development server and add it to your local environment.
 
 ## Building the Theme
-In the same way we don't want to track third party code we don't want to track compiled or derived code either. Because we leverage SASS and ES6 in our themes you'll want to jump into the *CLI container* and into the theme directory and build the necessary code (ES5 and CSS). The process there is simple and the [readme.md](`themes/archetype/README.md`) walks you through it.
+In the same way we don't want to track third party code we don't want to track compiled or derived code either. Because we leverage SASS and ES6 in our themes you'll want to jump into the *CLI container* and into the theme directory and build the necessary code (ES5 and CSS). The process there is simple and the [readme.md](themes/archetype/README.md) walks you through it.
 
 ## Continuous Integration via Circle CI
 This project is set up to utilize [CircleCI](https://circleci.com) to automate the build and deployment process to a server of your choice. Configuration
