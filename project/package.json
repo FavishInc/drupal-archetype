@@ -1,0 +1,11 @@
+{
+  "name": "equity-net",
+  "version": "0.0.0",
+  "scripts": {
+    "test": "mocha ./ci-tests.js"
+  },
+  "author": "",
+  "dependencies": {
+    "mocha": "^2.3.3"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "name": "favish/archetype",
+  "description": "archetype project",
+  "type": "project",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "preferred-install": "dist",
+    "autoloader-suffix": "Drupal8"
+  },
+  "require-dev": {
+    "drupal/devel": "8.1.*@dev",
+    "drupal/examples": "8.1.*@dev"
+  },
+  "require": {
+    "davidbarratt/custom-installer": "dev-master",
+    "cweagans/composer-patches": "~1.0",
+    "derhasi/composer-preserve-paths": "0.1.*",
+    "composer/installers": "^1.0.20",
+
+    "drupal/core": "8.0.*"
+  },
+  "extra": {
+    "custom-installer": {
+      "drupal-module": "modules/contrib/{$name}/",
+      "drupal-library": "vendor/{$name}/"
+    },
+    "preserve-paths": [
+      "modules",
+      "sites/default",
+      "vendor"
+    ],
+    "_readme": [
+      "By default Drupal loads the autoloader from ./core/vendor/autoload.php.",
+      "To change the autoloader you can edit ./autoload.php."
+    ],
+    "patches": {}
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url":  "https://packagist.drupal-composer.org/"
+    }
+  ]
+}

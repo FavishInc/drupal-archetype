@@ -1,0 +1,13 @@
+@import '../../node_modules/breakpoint-sass/stylesheets/breakpoint';
+
+// Breakpoints
+$mobile-portrait: 320px;
+$mobile-landscape: 480px;
+$tablet-portrait: 768px;
+$tablet-landscape: 1024px;
+$desktop: 1280px;
+$mobile-only: max-width $tablet-portrait - 1;
+$tablet-portrait-only: $tablet-portrait $tablet-landscape - 1;
+$tablet-landscape-only: $tablet-landscape $desktop - 1;
+$tablet-only: $tablet-portrait $desktop - 1;
+$not-desktop: max-width $tablet-landscape -1;

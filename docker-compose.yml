@@ -1,0 +1,44 @@
+web:
+  image: nginx
+  ports:
+    - 80:80 # Expose http on docker's machines localhost:8080.
+  volumes:
+    - ./project:/var/www
+    - ./.docker/etc/nginx/vhost.conf:/etc/nginx/conf.d/default.conf
+  links:
+    - php
+php:
+  image: favish/php-fpm
+  volumes:
+    - ./.docker/etc/php/100-custom.ini:/etc/php5/fpm/conf.d/100-custom.ini
+    - ./.docker/etc/php/php-fpm.conf:/etc/php5/fpm/php-fpm.conf
+    - ./project:/var/www # Needed to actually execute the PHP files.
+  links:
+    - db # Allows php container to see db container.
+  expose:
+    - "9001" # Allows XDebug ports.
+db:
+  image: sameersbn/mysql
+  volumes:
+    - /var/lib/mysql
+  environment:
+    - DB_NAME=docker
+    - DB_USER=docker
+    - DB_PASS=docker
+
+cli:
+  image: favish/cli
+  volumes:
+      - ./project:/var/www
+      - ./.docker/etc/drush:/etc/drush
+      - /root/.composer # Allows caching of composer for faster installs on a per project basis
+      - ${HOME}/.ssh:/.ssh
+  links:
+    - db
+  ports:
+      - 35729:35729
+  environment:
+    - TERM=xterm
+    - LANG=en_US.UTF-8
+    - LANGUAGE=en_US.UTF-8
+    - LC_ALL=en_US.UTF-8

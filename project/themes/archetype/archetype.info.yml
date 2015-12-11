@@ -1,0 +1,16 @@
+name: EN
+type: theme
+description: Sub-theme of Classy
+core: 8.x
+base theme: classy
+
+libraries:
+  - en/global
+  - en/font-awesome
+
+regions:
+  header: Header
+  footer: Footer
+  highlighted: Highlighted
+  breadcrumb: Breadcrumb
+  content: Content

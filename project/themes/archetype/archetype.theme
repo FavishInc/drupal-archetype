@@ -1,0 +1,50 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the EN theme.
+ */
+
+use Drupal\Component\Utility\Xss;
+use Drupal\Component\Utility\SafeMarkup;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\image\Entity\ImageStyle;
+
+/**
+ * Implements hook_preprocess_HOOK() for page templates.
+ */
+function archetype_preprocess_page(&$vars) {
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for node.html.twig.
+ */
+function archetype_preprocess_node(&$vars) {
+    $test = 1;
+    $function = __FUNCTION__ . '_' . $vars['node']->getType();
+    if (function_exists($function)) {
+        $function($vars);
+    }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for block templates.
+ */
+function archetype_preprocess_block(&$variables) {
+    switch ($variables['base_plugin_id']) {
+        case 'system_branding_block':
+            $variables['site_logo'] = '';
+            if ($variables['content']['site_logo']['#access'] && $variables['content']['site_logo']['#uri']) {
+                $variables['site_logo'] = str_replace('.svg', '.png', $variables['content']['site_logo']['#uri']);
+            }
+            break;
+
+    }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for user template.
+ */
+function archetype_preprocess_user(&$vars) {
+    $vars['user'] = $vars['elements']['#user'];
+}

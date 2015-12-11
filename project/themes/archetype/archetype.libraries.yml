@@ -1,0 +1,13 @@
+global:
+  version: VERSION
+  css:
+      theme:
+        css/user.css: {}
+        css/layout.css: {}
+        css/region.css: {}
+
+font-awesome:
+  version: VERSION
+  css:
+    theme:
+      https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css: { type: external, minified: true }

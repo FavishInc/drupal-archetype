@@ -1,0 +1,30 @@
+general:
+  build_dir: project
+
+machine:
+  php:
+    version: 5.6.14
+  node:
+    version: 4.2.2
+
+dependencies:
+  pre:
+    - npm install:
+        pwd:
+          themes/en
+    - npm run-script build:
+        pwd:
+          themes/en
+
+  cache_directories:
+    - "themes/en/node_modules"
+    - "core"
+    - "vendor"
+    - "modules/contrib"
+
+# deployment:
+#   master:
+#     branch: master
+#     commands:
+#       - rsync -av --progress --delete-after --exclude-from=excludes.rsync ./ git@52.25.222.246:/var/www/dev/
+#       - ssh git@52.25.222.246 'cd /var/www/dev; /home/git/.composer/vendor/bin/drush cr'

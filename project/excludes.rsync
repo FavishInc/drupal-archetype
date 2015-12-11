@@ -1,0 +1,7 @@
+excludes.rsync
+.git
+.htaccess
+files/
+/sites/default/files
+settings.local.php
+node_modules/
