@@ -26,5 +26,5 @@ dependencies:
 #   master:
 #     branch: master
 #     commands:
-#       - rsync -av --progress --delete-after --exclude-from=excludes.rsync ./ git@52.25.222.246:/var/www/dev/
-#       - ssh git@52.25.222.246 'cd /var/www/dev; /home/git/.composer/vendor/bin/drush cr'
+#       - rsync -av --progress --delete-after --exclude-from=excludes.rsync ./ git@123.123.123.123:/var/www/dev/
+#       - ssh git@123.123.123.123 'cd /var/www/dev; /home/git/.composer/vendor/bin/drush cr'
