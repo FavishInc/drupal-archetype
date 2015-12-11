@@ -28,15 +28,18 @@ The .gitignore file in this repository specifically ignores contributed modules 
 
 In order to get a full populated and functional Drupal install in place the first thing you'll need to do after you jump into the CLI above is `composer install --prefer-dist`. This will fetch all of the third party projects and put them into place automagically.
 
-Adding new modules, themes and libraries should be done in this file to avoid tracking any third party code. We have an example or two in there for guidance and you can use `composer/require` to add anything in [Drupal Packagist](https://packagist.drupal-composer.org/
-).
+Adding new modules, themes and libraries should be done in this file to avoid tracking any third party code. We have an example or two in there for guidance and you can use `composer/require` to add anything in [Drupal Packagist](https://packagist.drupal-composer.org/).
 
 
 ## Drush
-
-
+Drush works as usual with a few super powers.
+* in `.docker/etc/drush` you'll notice 2 files that let you specify aliases for your development and potentially production environments. If you fill those out with the correct hostname and directory you can perform local and remote operations form inside the *CLI container*.
 * In your *CLI container* from above, running `drush sql-sync @dev @local` will grab the most up to date version of mysql from the development server and add it to your local environment.
-* After this, you will need to build your theme (`themes/en/README.md`) via npm and you can point your browser to the appropriate
+
+## NPM and Gulp
+In the same way we don't want to track third party code we don't want to track compiled or derived code either. Because we leverage SASS and ES6 in our themes you'll want to jump into the them directory and build the necessary code (ES5 and CSS).
+
+* After this, you will need to build your theme (`themes/archetype/README.md`) via npm and you can point your browser to the appropriate
     address to view your local instance of the site.
 
 ## Continuous Integration via Circle CI
