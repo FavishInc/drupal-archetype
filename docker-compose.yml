@@ -1,5 +1,6 @@
 web:
   image: nginx
+  container_name: drupal_nginx
   ports:
     - 80:80 # Expose http on docker's machines localhost:8080.
   volumes:
@@ -9,6 +10,7 @@ web:
     - php
 php:
   image: favish/php-fpm
+  container_name: drupal_php-fpm
   volumes:
     - ./.docker/etc/php/100-custom.ini:/etc/php5/fpm/conf.d/100-custom.ini
     - ./.docker/etc/php/php-fpm.conf:/etc/php5/fpm/php-fpm.conf
@@ -19,6 +21,7 @@ php:
     - "9001" # Allows XDebug ports.
 db:
   image: sameersbn/mysql
+  container_name: drupal_db
   volumes:
     - /var/lib/mysql
   environment:
@@ -28,6 +31,7 @@ db:
 
 cli:
   image: favish/cli
+  container_name: drupal_cli
   volumes:
       - ./project:/var/www
       - ./.docker/etc/drush:/etc/drush
