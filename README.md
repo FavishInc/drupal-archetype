@@ -14,7 +14,7 @@ brew cask info dockertoolbox
 Once thats complete you should have `docker`, `docker-compse`, and `docker-machine` installed as command line tools as well as 2 new applications you can run from spotlight "Docker Quickstart Terminal" and "Kitematic".
 
 ## Starting the Docker Containers
-* In order to start the virtual machine that will actually host the docker containers you need to run the "Docker Quickstart Terminal". It will grab boot2docker and configure your terminal environment to forward any docker command to that machine by setting an environment variable.
+* In order to start the virtual machine that will actually host the docker containers you need to run the "Docker Quickstart Terminal". It will grab boot2docker and configure your terminal environment to forward any docker command to that machine by setting an environment variable. Note the IP address it reports starting as that is where you'll find your site.
 * After that is complete, running `docker-compose up` from this directory will download the necessary images from dockerhub (nginx, php, db, and cli) and start up a local development environment.
 * Once you're up and running, you can use `docker ps` to see your currently running containers.
 * To jump into a fully functional [ZSH shell](https://github.com/robbyrussell/oh-my-zsh) run `docker exec -it drupal_cli zsh` and you'll be placed directly into the web sites document root. This container provides you with modern drupal command line tools including:
